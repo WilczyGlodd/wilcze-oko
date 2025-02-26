@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domek na wodzie "Wilcze oko" | Wypoczynek w sercu natury</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #333333;
+            --accent-color: #2e8b57;
+            --light-color: #f5f5f5;
+            --dark-color: #121212;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 600px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #1e6e3c;
+            transform: translateY(-2px);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .testimonials .section-title {
+            color: white;
+        }
+        
+        .testimonials .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
+        
+        .map {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .social-links li {
+            margin-right: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Wilcze <span>oko</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Strona główna</a></li>
+                    <li><a href="#features">Udogodnienia</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#about">O nas</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Domek na wodzie "Wilcze oko"</h1>
+            <p>Luksusowy wypoczynek w sercu natury Podkarpacia. Całoroczny domek letniskowy w otoczeniu malowniczych krajobrazów.</p>
+            <a href="#contact" class="btn">Zarezerwuj teraz</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Udogodnienia</h2>
+                <p>Nasz domek oferuje luksusowe udogodnienia, które zapewnią niezapomniane wrażenia podczas Twojego pobytu.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧖</div>
+                    <h3>Sauna</h3>
+                    <p>Zrelaksuj się w naszej luksusowej saunie, idealnej na chłodne wieczory i regenerację po aktywnym dniu.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛁</div>
+                    <h3>Jacuzzi</h3>
+                    <p>Zanurz się w ciepłych bąbelkach naszego jacuzzi z widokiem na malowniczy krajobraz.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Otoczenie natury</h3>
+                    <p>Cisza, spokój i czyste powietrze - to wszystko oferuje nasze unikalne położenie z dala od miejskiego zgiełku.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌊</div>
+                    <h3>Domek na wodzie</h3>
+                    <p>Unikalny domek położony bezpośrednio na stawie, zapewniający niepowtarzalne wrażenia i kontakt z naturą.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍷</div>
+                    <h3>Winnica</h3>
+                    <p>Odwiedź pobliską winnicę i skosztuj lokalnych win podczas swojego pobytu.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏐</div>
+                    <h3>Boisko do siatkówki</h3>
+                    <p>Aktywnie spędź czas na naszym boisko do siatkówki, idealne dla rodziny i przyjaciół.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeria</h2>
+                <p>Odkryj piękno naszego domku i jego malowniczego otoczenia.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Domek na wodzie Wilcze oko - widok z zewnątrz">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Wnętrze domku">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Sauna">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Jacuzzi">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Staw">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Winnica">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Boisko do siatkówki">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/300" alt="Krajobraz o zachodzie słońca">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>O Domku "Wilcze oko"</h2>
+                    <p>"Wilcze oko" to unikalne miejsce stworzone z myślą o miłośnikach natury i relaksu. Nasz całoroczny domek letniskowy położony jest w malowniczej miejscowości Wietrzno w województwie podkarpackim, z dala od miejskiego zgiełku i codziennych trosk.</p>
+                    <p>To, co wyróżnia nasz domek, to jego wyjątkowe położenie bezpośrednio na stawie, oferujące niezapomniane wrażenia i bliski kontakt z przyrodą. Wyobraź sobie poranną kawę na tarasie z widokiem na taflę wody lub wieczorny relaks w jacuzzi pod rozgwieżdżonym niebem.</p>
+                    <p>Starannie zaprojektowany i wyposażony we wszystkie niezbędne udogodnienia, domek "Wilcze oko" to idealne miejsce na romantyczny weekend we dwoje, rodzinny wypoczynek czy spotkanie z przyjaciółmi. Niezależnie od pory roku, nasze miejsce zachwyca swoim urokiem i oferuje liczne atrakcje.</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/500/400" alt="Domek Wilcze oko o zachodzie słońca">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Opinie naszych gości</h2>
+                <p>Poznaj doświadczenia osób, które już odwiedziły nasz domek.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Spędziliśmy cudowny weekend w domku 'Wilcze oko'. Sauna i jacuzzi to strzał w dziesiątkę, zwłaszcza po długim spacerze po okolicy. Widoki są niesamowite, a cisza wręcz relaksująca. Na pewno wrócimy!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Anna K.">
+                        <div class="author-info">
+                            <h4>Anna K.</h4>
+                            <p>Kraków</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Idealne miejsce na odpoczynek od miejskiego zgiełku. Domek jest przytulny i dobrze wyposażony, a jego położenie na wodzie tworzy magiczną atmosferę. Poranne śniadania na tarasie z widokiem na staw to coś, za czym już tęsknię."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Michał i Ola">
+                        <div class="author-info">
+                            <h4>Michał i Ola</h4>
+                            <p>Warszawa</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>"Byliśmy tu zimą i było cudownie! Sauna rozgrzewała po spacerach po okolicy, a jacuzzi pod gwiazdami to niezapomniane przeżycie. Domek jest ciepły i przytulny nawet przy minusowych temperaturach. Polecam!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/50/50" alt="Piotr W.">
+                        <div class="author-info">
+                            <h4>Piotr W.</h4>
+                            <p>Wrocław</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontakt i rezerwacja</h2>
+                <p>Skontaktuj się z nami, aby zarezerwować swój pobyt w Domku "Wilcze oko".</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informacje kontaktowe</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <p>Wietrzno, woj. podkarpackie</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <p>+48 123 456 789</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <p>kontakt@wilczeoko.pl</p>
+                        </div>
+                    </div>
+                    <h3>Lokalizacja</h3>
+                    <div class="map">
+                        <img src="/api/placeholder/600/300" alt="Mapa lokalizacji domku Wilcze oko">
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Formularz rezerwacji</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Imię i nazwisko</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dates">Termin pobytu</label>
+                            <input type="text" id="dates" placeholder="Od - Do" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Wiadomość</label>
+                            <textarea id="message"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Wyślij zapytanie</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Domek "Wilcze oko"</h3>
+                    <p>Luksusowy wypoczynek w sercu natury Podkarpacia. Całoroczny domek letniskowy na wodzie.</p>
+                    <ul class="social-links">
+                        <li><a href="#">FB</a></li>
+                        <li><a href="#">IG</a></li>
+                        <li><a href="#">YT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Nawigacja</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Strona główna</a></li>
+                        <li><a href="#features">Udogodnienia</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#about">O nas</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Udogodnienia</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Sauna</a></li>
+                        <li><a href="#">Jacuzzi</a></li>
+                        <li><a href="#">Domek na wodzie</a></li>
+                        <li><a href="#">Winnica</a></li>
+                        <li><a href="#">Boisko do siatkówki</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Godziny otwarcia</h3>
+                    <p>Zameldowanie: od 15:00</p>
+                    <p>Wymeldowanie: do 11:00</p>
+                    <p>Recepcja: 8:00 - 20:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Domek na wodzie "Wilcze oko". Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking a link
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

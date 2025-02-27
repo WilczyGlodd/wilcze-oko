@@ -927,50 +927,52 @@
             });
         });
     </script>
-    // Expanded Gallery Scroll Navigation
-document.addEventListener('DOMContentLoaded', function() {
-    const galleryScroll = document.querySelector('.gallery-scroll');
-    const prevButton = document.querySelector('.gallery-prev');
-    const nextButton = document.querySelector('.gallery-next');
-    
-    if (galleryScroll && prevButton && nextButton) {
-        // Set scroll amount (width of one gallery item plus gap)
-        const scrollAmount = 320; // 300px width + 20px gap
-        
-        prevButton.addEventListener('click', function() {
-            galleryScroll.scrollBy({
-                left: -scrollAmount,
-                behavior: 'smooth'
-            });
+    <script>
+        // Expanded Gallery Scroll Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryScroll = document.querySelector('.gallery-scroll');
+            const prevButton = document.querySelector('.gallery-prev');
+            const nextButton = document.querySelector('.gallery-next');
+            
+            if (galleryScroll && prevButton && nextButton) {
+                // Set scroll amount (width of one gallery item plus gap)
+                const scrollAmount = 320; // 300px width + 20px gap
+                
+                prevButton.addEventListener('click', function() {
+                    galleryScroll.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                nextButton.addEventListener('click', function() {
+                    galleryScroll.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Optionally add touch swipe functionality for mobile
+                let startX;
+                let scrollLeft;
+                
+                galleryScroll.addEventListener('touchstart', function(e) {
+                    startX = e.touches[0].pageX - galleryScroll.offsetLeft;
+                    scrollLeft = galleryScroll.scrollLeft;
+                }, { passive: true });
+                
+                galleryScroll.addEventListener('touchmove', function(e) {
+                    if (!startX) return;
+                    const x = e.touches[0].pageX - galleryScroll.offsetLeft;
+                    const walk = (x - startX) * 2; // Scroll speed multiplier
+                    galleryScroll.scrollLeft = scrollLeft - walk;
+                }, { passive: true });
+                
+                galleryScroll.addEventListener('touchend', function() {
+                    startX = null;
+                }, { passive: true });
+            }
         });
-        
-        nextButton.addEventListener('click', function() {
-            galleryScroll.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Optionally add touch swipe functionality for mobile
-        let startX;
-        let scrollLeft;
-        
-        galleryScroll.addEventListener('touchstart', function(e) {
-            startX = e.touches[0].pageX - galleryScroll.offsetLeft;
-            scrollLeft = galleryScroll.scrollLeft;
-        }, { passive: true });
-        
-        galleryScroll.addEventListener('touchmove', function(e) {
-            if (!startX) return;
-            const x = e.touches[0].pageX - galleryScroll.offsetLeft;
-            const walk = (x - startX) * 2; // Scroll speed multiplier
-            galleryScroll.scrollLeft = scrollLeft - walk;
-        }, { passive: true });
-        
-        galleryScroll.addEventListener('touchend', function() {
-            startX = null;
-        }, { passive: true });
-    }
-});
+    </script>
 </body>
 </html>

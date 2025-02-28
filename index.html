@@ -650,6 +650,84 @@ img {
         margin-right: 0;
     }
 }
+        /* Styles dla promocji Wilczy Głód */
+.footer-promo {
+    background-color: var(--dark-color);
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.promo-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.promo-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    color: white;
+}
+
+.promo-text h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+}
+
+.promo-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.promo-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
+    position: relative;
+}
+
+.promo-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #1e6e3c;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .promo-container {
+        flex-direction: column;
+    }
+    .promo-text, .promo-image {
+        min-width: 100%;
+    }
+}
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -1030,5 +1108,17 @@ img {
             }
         });
     </script>
+    <section class="footer-promo">
+    <div class="promo-container">
+        <div class="promo-text">
+            <h3>Wilczy Głód</h3>
+            <p>Jeśli chcesz kompleksowo zadbać o swoje zdrowie, odwiedź Wilczy Głód, gdzie znajdziesz profesjonalne porady żywieniowe i plany dietetyczne dopasowane do Twoich potrzeb.</p>
+            <a href="https://wilczy-glod.pl" class="cta-button">Odkryj Wilczy Głód</a>
+        </div>
+        <div class="promo-image">
+            <img src="Zdjęcia/1.png" alt="Wilczy Głód - zdrowe odżywianie">
+        </div>
+    </div>
+</section>
 </body>
 </html>

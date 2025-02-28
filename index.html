@@ -420,24 +420,48 @@
         }
         
         .social-links {
-            display: flex;
-            list-style: none;
-            margin-top: 15px;
-        }
-        
-        .social-links li {
-            margin-right: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
+    display: flex;
+    list-style: none;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.social-links li {
+    margin-right: 15px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.social-links a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Opcjonalnie: różne kolory dla różnych platform */
+.social-links li:nth-child(1) a:hover {
+    background-color: #3b5998; /* Facebook */
+}
+
+.social-links li:nth-child(2) a:hover {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); /* Instagram */
+}
+
+.social-links li:nth-child(3) a:hover {
+    background-color: #FF0000; /* YouTube */
+}
         
         .footer-bottom {
             text-align: center;
@@ -627,6 +651,7 @@ img {
     }
 }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -902,9 +927,8 @@ img {
                     <h3>Domek "Wilcze oko"</h3>
                     <p>Luksusowy wypoczynek w sercu natury Podkarpacia. Całoroczny domek letniskowy na wodzie.</p>
                     <ul class="social-links">
-                        <li><a href="#">FB</a></li>
-                        <li><a href="#">IG</a></li>
-                        <li><a href="#">YT</a></li>
+                        <li><a href="https://www.facebook.com/domeknawodziewilczeoko?locale=pl_PL" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.instagram.com/domek.wilczeoko?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 </div>
                 <div class="footer-column">

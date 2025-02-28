@@ -652,12 +652,11 @@ img {
 }
         /* Styles dla promocji Wilczy Głód */
 .footer-promo {
-    background-color: var(--dark-color);
+    background-color: white; /* Zmienione z var(--dark-color) na białe */
     padding: 40px 0;
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #e0e0e0; /* Zmienione, aby było widoczne na białym tle */
 }
-
 .promo-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -668,41 +667,37 @@ img {
     gap: 30px;
     padding: 0 20px;
 }
-
 .promo-text {
     flex: 1;
     min-width: 300px;
     text-align: left;
-    color: white;
+    color: #333; /* Zmienione z white na ciemny kolor */
 }
-
 .promo-text h3 {
     font-size: 24px;
     margin-bottom: 15px;
     color: var(--accent-color);
 }
-
 .promo-text p {
     font-size: 16px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.8);
+    color: #555; /* Zmienione z rgba(255, 255, 255, 0.8) na ciemny kolor */
     margin-bottom: 20px;
 }
-
 .promo-image {
     flex: 1;
-    min-width: 300px;
-    max-width: 450px;
+    min-width: 200px; /* Zmniejszone z 300px */
+    max-width: 300px; /* Zmniejszone z 450px */
     position: relative;
 }
-
 .promo-image img {
     width: 100%;
     height: auto;
+    max-width: 200px; /* Dodane ograniczenie szerokości */
+    max-height: 150px; /* Dodane ograniczenie wysokości */
     border-radius: 8px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Lżejszy cień dla białego tła */
 }
-
 .cta-button {
     display: inline-block;
     background-color: var(--accent-color);
@@ -714,12 +709,10 @@ img {
     font-size: 16px;
     transition: all 0.3s;
 }
-
 .cta-button:hover {
     background-color: #1e6e3c;
     transform: translateY(-2px);
 }
-
 @media (max-width: 768px) {
     .promo-container {
         flex-direction: column;
@@ -728,8 +721,6 @@ img {
         min-width: 100%;
     }
 }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -1006,7 +997,7 @@ img {
             <a href="https://wilczy-glod.pl" class="cta-button">Odkryj Wilczy Głód</a>
         </div>
         <div class="promo-image">
-            <img src="Zdjęcia/1.png" alt="Wilczy Głód - zdrowe odżywianie"> style="max-width: 300px; max-height: 200px;">
+            <img src="Zdjęcia/1.png" alt="Wilczy Głód - zdrowe odżywianie" style="max-width: 200px; max-height: 150px;">
         </div>
     </div>
 </section>

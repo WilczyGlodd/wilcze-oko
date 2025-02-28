@@ -420,48 +420,48 @@
         }
         
         .social-links {
-    display: flex;
-    list-style: none;
-    margin-top: 15px;
-    padding: 0;
-}
+            display: flex;
+            list-style: none;
+            margin-top: 15px;
+            padding: 0;
+        }
 
-.social-links li {
-    margin-right: 15px;
-}
+        .social-links li {
+            margin-right: 15px;
+        }
 
-.social-links a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    border-radius: 50%;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 18px;
-}
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
 
-.social-links a:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
-/* Opcjonalnie: różne kolory dla różnych platform */
-.social-links li:nth-child(1) a:hover {
-    background-color: #3b5998; /* Facebook */
-}
+        /* Opcjonalnie: różne kolory dla różnych platform */
+        .social-links li:nth-child(1) a:hover {
+            background-color: #3b5998; /* Facebook */
+        }
 
-.social-links li:nth-child(2) a:hover {
-    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); /* Instagram */
-}
+        .social-links li:nth-child(2) a:hover {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); /* Instagram */
+        }
 
-.social-links li:nth-child(3) a:hover {
-    background-color: #FF0000; /* YouTube */
-}
+        .social-links li:nth-child(3) a:hover {
+            background-color: #FF0000; /* YouTube */
+        }
         
         .footer-bottom {
             text-align: center;
@@ -512,215 +512,228 @@
             }
         }
         /* Expanded Gallery Styles */
-.expanded-gallery {
-    padding: 80px 0;
-    background-color: var(--primary-color);
-    color: white;
-}
+        .expanded-gallery {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
 
-.expanded-gallery .section-title {
-    color: white;
-}
+        .expanded-gallery .section-title {
+            color: white;
+        }
 
-.expanded-gallery .section-title p {
-    color: rgba(255, 255, 255, 0.8);
-}
+        .expanded-gallery .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
 
-.expanded-gallery-container {
-    position: relative;
-    margin: 40px 0;
-    padding: 0 40px;
-}
+        .expanded-gallery-container {
+            position: relative;
+            margin: 40px 0;
+            padding: 0 40px;
+        }
 
-.gallery-scroll {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
-    gap: 20px;
-    padding: 20px 0;
-}
+        .gallery-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+            gap: 20px;
+            padding: 20px 0;
+        }
 
-.gallery-scroll::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome/Safari/Opera */
-}
+        .gallery-scroll::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome/Safari/Opera */
+        }
 
-.gallery-item-expanded {
-    flex: 0 0 auto;
-    width: 300px;
-    height: 250px;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-}
+        .gallery-item-expanded {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
 
-.gallery-item-expanded:hover {
-    transform: scale(1.03);
-}
+        .gallery-item-expanded:hover {
+            transform: scale(1.03);
+        }
 
-.gallery-item-expanded img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .gallery-item-expanded img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.gallery-navigation {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    transform: translateY(-50%);
-    z-index: 2;
-    pointer-events: none;
-}
+        .gallery-navigation {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            z-index: 2;
+            pointer-events: none;
+        }
 
-.gallery-prev, .gallery-next {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-    pointer-events: auto;
-}
+        .gallery-prev, .gallery-next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            pointer-events: auto;
+        }
 
-.gallery-prev {
-    margin-left: 10px;
-}
+        .gallery-prev {
+            margin-left: 10px;
+        }
 
-.gallery-next {
-    margin-right: 10px;
-}
+        .gallery-next {
+            margin-right: 10px;
+        }
 
-.gallery-prev:hover, .gallery-next:hover {
-    background-color: var(--accent-color);
-}
+        .gallery-prev:hover, .gallery-next:hover {
+            background-color: var(--accent-color);
+        }
 
-/* Responsive styles for expanded gallery */
-@media (max-width: 768px) {
-    .gallery-item-expanded {
-        width: 250px;
-        height: 200px;
-    }
-    
-    .expanded-gallery-container {
-        padding: 0 20px;
-    }
-}
+        /* Responsive styles for expanded gallery */
+        @media (max-width: 768px) {
+            .gallery-item-expanded {
+                width: 250px;
+                height: 200px;
+            }
+            
+            .expanded-gallery-container {
+                padding: 0 20px;
+            }
+        }
+        
         html, body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-}
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
 
-/* Zapewnienie responsywności mapy Google */
-.map iframe {
-    width: 100% !important;
-    max-width: 100%;
-}
+        /* Zapewnienie responsywności mapy Google */
+        .map iframe {
+            width: 100% !important;
+            max-width: 100%;
+        }
 
-/* Dostosowanie obrazów do szerokości ekranu */
-img {
-    max-width: 100%;
-    height: auto;
-}
+        /* Dostosowanie obrazów do szerokości ekranu */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
-/* Poprawka dla galerii na urządzeniach mobilnych */
-@media (max-width: 768px) {
-    .expanded-gallery-container {
-        padding: 0 10px;
-    }
-    
-    .gallery-prev {
-        margin-left: 0;
-    }
-    
-    .gallery-next {
-        margin-right: 0;
-    }
-}
+        /* Poprawka dla galerii na urządzeniach mobilnych */
+        @media (max-width: 768px) {
+            .expanded-gallery-container {
+                padding: 0 10px;
+            }
+            
+            .gallery-prev {
+                margin-left: 0;
+            }
+            
+            .gallery-next {
+                margin-right: 0;
+            }
+        }
+        
         /* Styles dla promocji Wilczy Głód */
-.footer-promo {
-    background-color: white; /* Zmienione z var(--dark-color) na białe */
-    padding: 40px 0;
-    text-align: center;
-    border-top: 1px solid #e0e0e0; /* Zmienione, aby było widoczne na białym tle */
-}
-.promo-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 0 20px;
-}
-.promo-text {
-    flex: 1;
-    min-width: 300px;
-    text-align: left;
-    color: #333; /* Zmienione z white na ciemny kolor */
-}
-.promo-text h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: var(--accent-color);
-}
-.promo-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #555; /* Zmienione z rgba(255, 255, 255, 0.8) na ciemny kolor */
-    margin-bottom: 20px;
-}
-.promo-image {
-    flex: 1;
-    min-width: 200px; /* Zmniejszone z 300px */
-    max-width: 300px; /* Zmniejszone z 450px */
-    position: relative;
-}
-.promo-image img {
-    width: 100%;
-    height: auto;
-    max-width: 200px; /* Dodane ograniczenie szerokości */
-    max-height: 150px; /* Dodane ograniczenie wysokości */
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Lżejszy cień dla białego tła */
-}
-.cta-button {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    transition: all 0.3s;
-}
-.cta-button:hover {
-    background-color: #1e6e3c;
-    transform: translateY(-2px);
-}
-@media (max-width: 768px) {
-    .promo-container {
-        flex-direction: column;
-    }
-    .promo-text, .promo-image {
-        min-width: 100%;
-    }
-}
+        .footer-promo {
+            background-color: white; /* Zmienione z var(--dark-color) na białe */
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #e0e0e0; /* Zmienione, aby było widoczne na białym tle */
+        }
+        
+        .promo-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 20px;
+        }
+        
+        .promo-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+            color: #333; /* Zmienione z white na ciemny kolor */
+        }
+        
+        .promo-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        .promo-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555; /* Zmienione z rgba(255, 255, 255, 0.8) na ciemny kolor */
+            margin-bottom: 20px;
+        }
+        
+        .promo-image {
+            flex: 1;
+            min-width: 200px; /* Zmniejszone z 300px */
+            max-width: 300px; /* Zmniejszone z 450px */
+            position: relative;
+        }
+        
+        .promo-image img {
+            width: 100%;
+            height: auto;
+            max-width: 200px; /* Dodane ograniczenie szerokości */
+            max-height: 150px; /* Dodane ograniczenie wysokości */
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Lżejszy cień dla białego tła */
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #1e6e3c;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .promo-container {
+                flex-direction: column;
+            }
+            .promo-text, .promo-image {
+                min-width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -829,58 +842,59 @@ img {
             </div>
         </div>
     </section>
+    
     <!-- Expanded Gallery Section -->
-<section class="expanded-gallery">
-    <div class="container">
-        <div class="section-title">
-            <h2>Więcej zdjęć</h2>
-            <p>Przewiń w bok, aby zobaczyć więcej ujęć naszego domku i otoczenia</p>
-        </div>
-        <div class="expanded-gallery-container">
-            <div class="gallery-scroll">
-                <div class="gallery-item-expanded">
-                    <img src="Zdjęcia/domek jesień.png" alt="Dodatkowe zdjęcie 1">
+    <section class="expanded-gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Więcej zdjęć</h2>
+                <p>Przewiń w bok, aby zobaczyć więcej ujęć naszego domku i otoczenia</p>
+            </div>
+            <div class="expanded-gallery-container">
+                <div class="gallery-scroll">
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/domek jesień.png" alt="Dodatkowe zdjęcie 1">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/Salon.png" alt="Dodatkowe zdjęcie 2">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/domek zielony.png" alt="Dodatkowe zdjęcie 3">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/2.png" alt="Dodatkowe zdjęcie 4">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/Zdjęcie WhatsApp 2025-02-18 o 21.50.28_8a3ac4f7.jpg" alt="Dodatkowe zdjęcie 5">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/Zdjęcia/Zima.jpg" alt="Dodatkowe zdjęcie 6">
+                    </div>
                 </div>
-                <div class="gallery-item-expanded">
-                    <img src="Zdjęcia/Salon.png" alt="Dodatkowe zdjęcie 2">
-                </div>
-                <div class="gallery-item-expanded">
-                    <img src="Zdjęcia/domek zielony.png" alt="Dodatkowe zdjęcie 3">
-                </div>
-                <div class="gallery-item-expanded">
-                    <img src="Zdjęcia/2.png" alt="Dodatkowe zdjęcie 4">
-                </div>
-                <div class="gallery-item-expanded">
-                    <img src="Zdjęcia/Zdjęcie WhatsApp 2025-02-18 o 21.50.28_8a3ac4f7.jpg" alt="Dodatkowe zdjęcie 5">
-                </div>
-                <div class="gallery-item-expanded">
-                    <img src="Zdjęcia/Zdjęcia/Zima.jpg" alt="Dodatkowe zdjęcie 6">
+                <div class="gallery-navigation">
+                    <button class="gallery-prev">◀</button>
+                    <button class="gallery-next">▶</button>
                 </div>
             </div>
-            <div class="gallery-navigation">
-                <button class="gallery-prev">◀</button>
-                <button class="gallery-next">▶</button>
+        </div>
+    </section>
+
+  <!-- About Section -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>O Domku "Wilcze oko"</h2>
+                <p>"Wilcze oko" to unikalne miejsce stworzone z myślą o miłośnikach natury i relaksu. Nasz całoroczny domek położony jest w malowniczej miejscowości Wietrzno w województwie podkarpackim, z dala od miejskiego zgiełku i codziennych trosk.</p>
+                <p>To, co wyróżnia nasz domek, to jego wyjątkowe położenie bezpośrednio na stawie, oferujące niezapomniane wrażenia i bliski kontakt z przyrodą. Wyobraź sobie poranną kawę na tarasie z widokiem na taflę wody lub wieczorny relaks w jacuzzi pod rozgwieżdżonym niebem.</p>
+                <p>Starannie zaprojektowany i wyposażony we wszystkie niezbędne udogodnienia, domek "Wilcze oko" to idealne miejsce na romantyczny weekend we dwoje, rodzinny wypoczynek czy spotkanie z przyjaciółmi. Niezależnie od pory roku, nasze miejsce zachwyca swoim urokiem i zapewnia niezapomniane wspomnienia.</p>
+            </div>
+            <div class="about-image">
+                <img src="Zdjęcia/Zdjęcia/Zdjęcie WhatsApp 2025-02-19 o 11.56.22_c574f031.jpg" alt="Domek Wilcze Oko">
             </div>
         </div>
     </div>
 </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>O Domku "Wilcze oko"</h2>
-                    <p>"Wilcze oko" to unikalne miejsce stworzone z myślą o miłośnikach natury i relaksu. Nasz całoroczny domek położony jest w malowniczej miejscowości Wietrzno w województwie podkarpackim, z dala od miejskiego zgiełku i codziennych trosk.</p>
-                    <p>To, co wyróżnia nasz domek, to jego wyjątkowe położenie bezpośrednio na stawie, oferujące niezapomniane wrażenia i bliski kontakt z przyrodą. Wyobraź sobie poranną kawę na tarasie z widokiem na taflę wody lub wieczorny relaks w jacuzzi pod rozgwieżdżonym niebem.</p>
-                    <p>Starannie zaprojektowany i wyposażony we wszystkie niezbędne udogodnienia, domek "Wilcze oko" to idealne miejsce na romantyczny weekend we dwoje, rodzinny wypoczynek czy spotkanie z przyjaciółmi. Niezależnie od pory roku, nasze miejsce zachwyca swoim urokiem i oferuje liczne atrakcje.</p>
-</div> <!-- założyłem, że to zamknięcie jakiegoś kontenera z poprzedniej sekcji -->
-<div class="about-image">
-    <img src="Zdjęcia/Zdjęcia/Zdjęcie WhatsApp 2025-02-19 o 11.56.22_c574f031.jpg" alt="Domek Wilcze Oko">
-</div>
-</div> <!-- Zamknięcie kontenera about -->
-</div> <!-- Zamknięcie kontenera sekcji about -->
-</section> <!-- Zamknięcie sekcji about -->
 
 <!-- Testimonials Section -->
 <section class="testimonials">
@@ -919,7 +933,7 @@ img {
                     <p>"Jestem absolutnie zauroczona tym miejscem. Zdecydowanie polecam miejsce i bardzo miłą gospodynię. W domku jest wszystko co potrzebne do udanego pobytu, bardzo czysto i przytulnie. Ogromny plus, że można przyjechać ze zwierzakami."</p>
                 </div>
                 <div class="testimonial-author">
-                    <img src="Zdjęcia/Zdjęcia/gość3.png" alt="Roksana"> <!-- usunąłem początkowy slash -->
+                    <img src="Zdjęcia/Zdjęcia/gość3.png" alt="Roksana">
                     <div class="author-info">
                         <h4>Roksana</h4>
                         <p>Wrocław</p>
@@ -930,7 +944,7 @@ img {
     </div>
 </section>
 
-        <!-- tutaj kontynuuj sekcję kontaktową -->
+<!-- Contact Section -->
 <section class="contact" id="contact">
     <div class="container">
         <div class="section-title">
@@ -988,7 +1002,8 @@ img {
         </div>
     </div>
 </section>
-    <!-- Sekcja promocyjna Wilczy Głód -->
+
+<!-- Sekcja promocyjna Wilczy Głód -->
 <section class="footer-promo">
     <div class="promo-container">
         <div class="promo-text">
@@ -1001,128 +1016,117 @@ img {
         </div>
     </div>
 </section>
-<!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Domek "Wilcze oko"</h3>
-                    <p>Luksusowy wypoczynek w sercu natury Podkarpacia. Całoroczny domek letniskowy na wodzie.</p>
-                    <ul class="social-links">
-                        <li><a href="https://www.facebook.com/domeknawodziewilczeoko?locale=pl_PL" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="https://www.instagram.com/domek.wilczeoko?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Nawigacja</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Strona główna</a></li>
-                        <li><a href="#features">Udogodnienia</a></li>
-                        <li><a href="#gallery">Galeria</a></li>
-                        <li><a href="#about">O nas</a></li>
-                        <li><a href="#contact">Kontakt</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Udogodnienia</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Sauna</a></li>
-                        <li><a href="#">Jacuzzi</a></li>
-                        <li><a href="#">Domek na wodzie</a></li>
-                        <li><a href="#">Przyjazne zwierzętom</a></li>
-                        <li><a href="#">Boisko do siatkówki</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Godziny otwarcia</h3>
-                    <p>Zameldowanie: od 15:00</p>
-                    <p>Wymeldowanie: do 11:00</p>
-                    <p>Recepcja: 8:00 - 20:00</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Domek na wodzie "Wilcze oko". Wszelkie prawa zastrzeżone.</p>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        // Simple Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenu.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
-            
-            // Close menu when clicking a link
-            const links = document.querySelectorAll('.nav-links a');
-            links.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                });
-            });
-        });
-    </script>
-    <script>
-        // Expanded Gallery Scroll Navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            const galleryScroll = document.querySelector('.gallery-scroll');
-            const prevButton = document.querySelector('.gallery-prev');
-            const nextButton = document.querySelector('.gallery-next');
-            
-            if (galleryScroll && prevButton && nextButton) {
-                // Set scroll amount (width of one gallery item plus gap)
-                const scrollAmount = 320; // 300px width + 20px gap
-                
-                prevButton.addEventListener('click', function() {
-                    galleryScroll.scrollBy({
-                        left: -scrollAmount,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                nextButton.addEventListener('click', function() {
-                    galleryScroll.scrollBy({
-                        left: scrollAmount,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Optionally add touch swipe functionality for mobile
-                let startX;
-                let scrollLeft;
-                
-                galleryScroll.addEventListener('touchstart', function(e) {
-                    startX = e.touches[0].pageX - galleryScroll.offsetLeft;
-                    scrollLeft = galleryScroll.scrollLeft;
-                }, { passive: true });
-                
-                galleryScroll.addEventListener('touchmove', function(e) {
-                    if (!startX) return;
-                    const x = e.touches[0].pageX - galleryScroll.offsetLeft;
-                    const walk = (x - startX) * 2; // Scroll speed multiplier
-                    galleryScroll.scrollLeft = scrollLeft - walk;
-                }, { passive: true });
-                
-                galleryScroll.addEventListener('touchend', function() {
-                    startX = null;
-                }, { passive: true });
-            }
-        });
-    </script>
-    <section class="footer-promo">
-    <div class="promo-container">
-        <div class="promo-text">
-            <h3>Wilczy Głód</h3>
-            <p>Jeśli chcesz kompleksowo zadbać o swoje zdrowie, odwiedź Wilczy Głód, gdzie znajdziesz profesjonalne porady żywieniowe i plany dietetyczne dopasowane do Twoich potrzeb.</p>
-            <a href="https://wilczy-glod.pl" class="cta-button">Odkryj Wilczy Głód</a>
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Domek "Wilcze oko"</h3>
+                <p>Luksusowy wypoczynek w sercu natury Podkarpacia. Całoroczny domek letniskowy na wodzie.</p>
+                <ul class="social-links">
+                    <li><a href="https://www.facebook.com/domeknawodziewilczeoko?locale=pl_PL" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/domek.wilczeoko?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Nawigacja</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Strona główna</a></li>
+                    <li><a href="#features">Udogodnienia</a></li>
+                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a href="#about">O nas</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Udogodnienia</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Sauna</a></li>
+                    <li><a href="#">Jacuzzi</a></li>
+                    <li><a href="#">Domek na wodzie</a></li>
+                    <li><a href="#">Przyjazne zwierzętom</a></li>
+                    <li><a href="#">Boisko do siatkówki</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Godziny otwarcia</h3>
+                <p>Zameldowanie: od 15:00</p>
+                <p>Wymeldowanie: do 11:00</p>
+                <p>Recepcja: 8:00 - 20:00</p>
+            </div>
         </div>
-        <div class="promo-image">
-            <img src="Zdjęcia/1.png" alt="Wilczy Głód - zdrowe odżywianie">
+        <div class="footer-bottom">
+            <p>&copy; 2025 Domek na wodzie "Wilcze oko". Wszelkie prawa zastrzeżone.</p>
         </div>
     </div>
-</section>
+</footer>
+
+<script>
+    // Simple Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+    });
+</script>
+<script>
+    // Expanded Gallery Scroll Navigation
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryScroll = document.querySelector('.gallery-scroll');
+        const prevButton = document.querySelector('.gallery-prev');
+        const nextButton = document.querySelector('.gallery-next');
+        
+        if (galleryScroll && prevButton && nextButton) {
+            // Set scroll amount (width of one gallery item plus gap)
+            const scrollAmount = 320; // 300px width + 20px gap
+            
+            prevButton.addEventListener('click', function() {
+                galleryScroll.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            nextButton.addEventListener('click', function() {
+                galleryScroll.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Optionally add touch swipe functionality for mobile
+            let startX;
+            let scrollLeft;
+            
+            galleryScroll.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].pageX - galleryScroll.offsetLeft;
+                scrollLeft = galleryScroll.scrollLeft;
+            }, { passive: true });
+            
+            galleryScroll.addEventListener('touchmove', function(e) {
+                if (!startX) return;
+                const x = e.touches[0].pageX - galleryScroll.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll speed multiplier
+                galleryScroll.scrollLeft = scrollLeft - walk;
+            }, { passive: true });
+            
+            galleryScroll.addEventListener('touchend', function() {
+                startX = null;
+            }, { passive: true });
+        }
+    });
+</script>
 </body>
 </html>

@@ -309,74 +309,93 @@
             color: rgba(255, 255, 255, 0.8);
         }
         
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        
-        .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            margin-bottom: 15px;
-        }
-        
-        .contact-icon {
-            font-size: 20px;
-            color: var(--accent-color);
-            margin-right: 15px;
-        }
-        
-        .map {
-            height: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .map img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .contact-form .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .contact-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
+       /* Contact Section */
+.contact {
+    padding: 80px 0;
+    background-color: var(--dark-color); /* Zmienione z white na ciemny kolor */
+    color: white; /* Dodany biały kolor tekstu */
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact .section-title {
+    color: white; /* Dodany biały kolor dla tytułu sekcji */
+}
+
+.contact .section-title p {
+    color: rgba(255, 255, 255, 0.8); /* Jasnoszary dla podtytułu */
+}
+
+.contact-info h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--accent-color); /* Zmienione z primary-color na accent-color */
+}
+
+.contact-details {
+    margin-bottom: 30px;
+}
+
+.contact-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.contact-icon {
+    font-size: 20px;
+    color: var(--accent-color);
+    margin-right: 15px;
+}
+
+.map {
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: white; /* Dodany biały kolor dla etykiet formularza */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333; /* Ciemniejszy border dla lepszego kontrastu */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.05); /* Lekko przezroczyste tło */
+    color: white; /* Biały tekst w inputach */
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Dodany styl hover dla inputów */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    outline: none;
+}
         /* Footer */
         footer {
             background-color: var(--dark-color);
@@ -955,7 +974,6 @@
             <div class="pricing-table">
                 <h3 class="pricing-header">Cennik standardowy</h3>
                 <div class="pricing-note">
-                    <p>Poniższe ceny nie dotyczą świąt Bożego Narodzenia, Sylwestra, Wielkanocy, Majówki, Bożego Ciała.</p>
                 </div>
                 
                 <div class="pricing-item">

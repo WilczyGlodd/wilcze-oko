@@ -943,7 +943,170 @@
         </div>
     </div>
 </section>
+<!-- Sekcja cennika -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <div class="section-title">
+            <h2>Cennik</h2>
+            <p>Sprawdź aktualne ceny wynajmu Domku Wilcze Oko</p>
+        </div>
+        
+        <div class="pricing-container">
+            <div class="pricing-table">
+                <h3 class="pricing-header">Cennik standardowy</h3>
+                <div class="pricing-note">
+                    <p>Poniższe ceny nie dotyczą świąt Bożego Narodzenia, Sylwestra, Wielkanocy, Majówki, Bożego Ciała.</p>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-label">2 osoby:</div>
+                    <div class="pricing-value">400 zł / doba</div>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-label">3-4 osoby:</div>
+                    <div class="pricing-value">450-500 zł / doba</div>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-label">5-6 osób:</div>
+                    <div class="pricing-value">550-600 zł / doba</div>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-label">Dzieci do lat 3:</div>
+                    <div class="pricing-value">GRATIS</div>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-label">Pobyt na 1 dobę:</div>
+                    <div class="pricing-value">1,5 ceny za dobę<br><small>(nie dotyczy weekendów)</small></div>
+                </div>
+                
+                <div class="pricing-item special">
+                    <div class="pricing-label">Boże Narodzenie, Sylwester:</div>
+                    <div class="pricing-value">1100 zł / doba – minimum 3 doby</div>
+                </div>
+            </div>
+            
+            <div class="pricing-table">
+                <h3 class="pricing-header">Dodatkowe udogodnienia</h3>
+                
+                <div class="pricing-item">
+                    <div class="pricing-label">Korzystanie z Gorącej Balii:</div>
+                    <div class="pricing-value">250 zł za 2 seanse</div>
+                </div>
+                
+                <div class="pricing-item">
+                    <div class="pricing-label">Korzystanie z Sauny:</div>
+                    <div class="pricing-value">150 zł za 1 seans</div>
+                </div>
+                
+                <div class="pricing-item special">
+                    <div class="pricing-label">Pakiet Gorąca Balia + Sauna:</div>
+                    <div class="pricing-value">350 zł</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pricing-note-bottom">
+            <p>* Podane ceny są cenami brutto i mogą ulec zmianie.</p>
+            <p>* W celu rezerwacji wymagana jest wpłata zadatku.</p>
+        </div>
+    </div>
+</section>
 
+<style>
+/* Styles dla sekcji cennika */
+.pricing {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.pricing-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pricing-table {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-header {
+    font-size: 24px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.pricing-note {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+.pricing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.pricing-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.pricing-value {
+    font-weight: 600;
+    color: #555;
+}
+
+.pricing-item.special {
+    background-color: rgba(46, 139, 87, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border: none;
+}
+
+.pricing-item.special .pricing-value {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.pricing-note-bottom {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pricing-table {
+        width: 100%;
+    }
+}
+</style>
 <!-- Contact Section -->
 <section class="contact" id="contact">
     <div class="container">

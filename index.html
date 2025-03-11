@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domek na wodzie "Wilcze oko" | Wypoczynek w sercu natury</title>
+    <!-- Meta tagi dla SEO -->
+    <meta name="description" content="Domek na wodzie Wilcze Oko - luksusowy wypoczynek nad wodą w sercu natury Podkarpacia. Sauna, jacuzzi, cisza i spokój." />
+    <meta name="keywords" content="domek na wodzie, Wilcze Oko, Podkarpacie, wypoczynek, sauna, jacuzzi, Wietrzno, nocleg nad wodą" />
     <style>
         :root {
             --primary-color: #1a1a1a;
@@ -38,6 +41,7 @@
             color: white;
             padding: 20px 0;
             position: relative;
+            z-index: 100;
         }
         
         nav {
@@ -99,6 +103,15 @@
             position: relative;
         }
         
+        /* Dodany efekt paralaksy */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            transition: background-position 0.2s ease-out;
+        }
+        
         .hero-content {
             z-index: 1;
             padding: 0 20px;
@@ -134,6 +147,30 @@
         .btn:hover {
             background-color: #1e6e3c;
             transform: translateY(-2px);
+        }
+        
+        /* Dodany efekt dla przycisków */
+        .btn-subtle {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .btn-subtle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+
+        .btn-subtle:hover::before {
+            transform: translateX(100%);
         }
         
         /* Features Section */
@@ -175,6 +212,54 @@
         
         .feature-card:hover {
             transform: translateY(-10px);
+        }
+        
+        /* Dodana klasa dla efektu glow przy najechaniu */
+        .glow-hover {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .glow-hover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: 0 0 20px rgba(46, 139, 87, 0);
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease;
+            pointer-events: none;
+        }
+
+        .glow-hover:hover::after {
+            box-shadow: 0 0 20px rgba(46, 139, 87, 0.4);
+        }
+        
+        /* Dodany efekt migotania ognia */
+        .fire-glow {
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.5s ease;
+        }
+
+        .fire-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 165, 0, 0.1);
+            animation: fireGlow 3s infinite alternate;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes fireGlow {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.3; }
         }
         
         .feature-icon {
@@ -246,12 +331,38 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
+        }
+        
+        /* Efekt falowania wody */
+        .water-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .water-ripple::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: var(--accent-color);
+            opacity: 0.4;
+            border-radius: 50%;
+            animation: ripple 5s ease-in-out infinite;
+        }
+
+        @keyframes ripple {
+            0% { transform: translateX(-100%) scale(1, 0.5); }
+            50% { transform: translateX(0%) scale(1, 1); }
+            100% { transform: translateX(100%) scale(1, 0.5); }
         }
         
         /* Testimonials Section */
@@ -310,92 +421,93 @@
         }
         
        /* Contact Section */
-.contact {
-    padding: 80px 0;
-    background-color: var(--dark-color); /* Zmienione z white na ciemny kolor */
-    color: white; /* Dodany biały kolor tekstu */
-}
+        .contact {
+            padding: 80px 0;
+            background-color: var(--dark-color); /* Zmienione z white na ciemny kolor */
+            color: white; /* Dodany biały kolor tekstu */
+        }
 
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-}
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
 
-.contact .section-title {
-    color: white; /* Dodany biały kolor dla tytułu sekcji */
-}
+        .contact .section-title {
+            color: white; /* Dodany biały kolor dla tytułu sekcji */
+        }
 
-.contact .section-title p {
-    color: rgba(255, 255, 255, 0.8); /* Jasnoszary dla podtytułu */
-}
+        .contact .section-title p {
+            color: rgba(255, 255, 255, 0.8); /* Jasnoszary dla podtytułu */
+        }
 
-.contact-info h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: var(--accent-color); /* Zmienione z primary-color na accent-color */
-}
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--accent-color); /* Zmienione z primary-color na accent-color */
+        }
 
-.contact-details {
-    margin-bottom: 30px;
-}
+        .contact-details {
+            margin-bottom: 30px;
+        }
 
-.contact-item {
-    display: flex;
-    margin-bottom: 15px;
-}
+        .contact-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
 
-.contact-icon {
-    font-size: 20px;
-    color: var(--accent-color);
-    margin-right: 15px;
-}
+        .contact-icon {
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-right: 15px;
+        }
 
-.map {
-    height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-}
+        .map {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
-.map img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+        .map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.contact-form .form-group {
-    margin-bottom: 20px;
-}
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
 
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: white; /* Dodany biały kolor dla etykiet formularza */
-}
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: white; /* Dodany biały kolor dla etykiet formularza */
+        }
 
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #333; /* Ciemniejszy border dla lepszego kontrastu */
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.05); /* Lekko przezroczyste tło */
-    color: white; /* Biały tekst w inputach */
-}
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333; /* Ciemniejszy border dla lepszego kontrastu */
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.05); /* Lekko przezroczyste tło */
+            color: white; /* Biały tekst w inputach */
+        }
 
-.contact-form textarea {
-    height: 150px;
-    resize: vertical;
-}
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
 
-/* Dodany styl hover dla inputów */
-.contact-form input:focus,
-.contact-form textarea:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-color);
-    outline: none;
-}
+        /* Dodany styl hover dla inputów */
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark-color);
@@ -490,6 +602,23 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
+        /* Animacja dla elementów pojawiających się podczas przewijania */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Opóźnienia dla elementów, które mają się pojawić po kolei */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.5s; }
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             .hero h1 {
@@ -528,6 +657,11 @@
             
             .mobile-menu {
                 display: block;
+            }
+            
+            /* Wyłącz efekt paralaksy na urządzeniach mobilnych */
+            .parallax-bg {
+                background-attachment: scroll;
             }
         }
         
@@ -849,6 +983,24 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Schema.org dane strukturalne dla SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Domek na wodzie Wilcze Oko",
+      "image": "Zdjęcia/Zdjęcia/Baner.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Wietrzno",
+        "addressRegion": "Podkarpackie"
+      },
+      "telephone": "+48 698 758 550",
+      "amenityFeature": ["Sauna", "Jacuzzi", "Pet friendly"],
+      "priceRange": "400-600 zł"
+    }
+    </script>
 </head>
 <body>
     <!-- Header Section -->
@@ -870,48 +1022,48 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
+    <section class="hero parallax-bg" id="home">
+        <div class="hero-content fade-in">
             <h1>Domek na wodzie "Wilcze oko"</h1>
             <p>Luksusowy wypoczynek w sercu natury Podkarpacia. Całoroczny domek letniskowy w otoczeniu malowniczych krajobrazów.</p>
-            <a href="#contact" class="btn">Zarezerwuj teraz</a>
+            <a href="#contact" class="btn btn-subtle">Zarezerwuj teraz</a>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title fade-in">
                 <h2>Udogodnienia</h2>
                 <p>Nasz domek oferuje luksusowe udogodnienia, które zapewnią niezapomniane wrażenia podczas Twojego pobytu.</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card glow-hover fire-glow fade-in">
                     <div class="feature-icon">🧖</div>
                     <h3>Sauna</h3>
                     <p>Zrelaksuj się w naszej luksusowej saunie, idealnej na chłodne wieczory i regenerację po aktywnym dniu.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card glow-hover fade-in delay-1">
                     <div class="feature-icon">🛁</div>
                     <h3>Jacuzzi</h3>
                     <p>Zanurz się w ciepłych bąbelkach naszego jacuzzi z widokiem na malowniczy krajobraz.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card glow-hover fade-in delay-2">
                     <div class="feature-icon">🌿</div>
                     <h3>Otoczenie natury</h3>
                     <p>Cisza, spokój i czyste powietrze - to wszystko oferuje nasze unikalne położenie z dala od miejskiego zgiełku.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card glow-hover fade-in">
                     <div class="feature-icon">🏡</div>
                     <h3>Domek na wodzie</h3>
                     <p>Unikalny domek położony bezpośrednio na stawie, zapewniający niepowtarzalne wrażenia i kontakt z naturą.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card glow-hover fade-in delay-1">
                     <div class="feature-icon">🐕</div>
                     <h3>Przyjazne zwierzętom</h3>
                     <p>W naszym obiekcie zwierzęta są mile widziane. Zapewniamy komfortowy pobyt dla Ciebie i Twojego pupila.</p>
                 </div>
-               <div class="feature-card">
+               <div class="feature-card glow-hover fade-in delay-2">
                     <div class="feature-icon">🏃</div>
                     <h3>Aktywny wypoczynek</h3>
                     <p>Odkryj wielorakie możliwości aktywnego spędzania czasu - rozegraj zacięty mecz siatkówki, rozwijaj swoją sprawność w badmintonie lub wyrusz na rowerową przygodę, by poznać malownicze krajobrazy okolicy.</p>
@@ -923,36 +1075,36 @@
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title fade-in">
                 <h2>Galeria</h2>
                 <p>Odkryj piękno naszego domku i jego malowniczego otoczenia.</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="Zdjęcia/Zdjęcia/zdjęcie 1.jpg" alt="Domek na wodzie Wilcze oko - widok z zewnątrz">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in delay-1">
                     <img src="Zdjęcia/domek jesień.png" alt="Wnętrze domku">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in delay-2">
                     <img src="Zdjęcia/Zdjęcia/Zima bliżej.jpg" alt="Sauna">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="Zdjęcia/Zdjęcia/balia.jpg" alt="Jacuzzi">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in delay-1">
                     <img src="Zdjęcia/Zdjęcia/Domek.jpg" alt="Staw">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in delay-2">
                     <img src="Zdjęcia/Zdjęcia/żółw.jpg" alt="żółw">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="Zdjęcia/Zdjęcia/ksiazka nala.jpg" alt="Boisko do siatkówki">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in delay-1">
                     <img src="Zdjęcia/Zdjęcia/natura.jpg" alt="Krajobraz o zachodzie słońca">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in delay-2">
                     <img src="Zdjęcia/Zdjęcia/Grill _domek_wiata.jpg" alt="grill">
                 </div>
             </div>
@@ -962,7 +1114,7 @@
     <!-- Expanded Gallery Section -->
     <section class="expanded-gallery">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title fade-in">
                 <h2>Więcej zdjęć</h2>
                 <p>Przewiń w bok, aby zobaczyć więcej ujęć naszego domku i otoczenia</p>
             </div>
@@ -1015,14 +1167,15 @@
 <section class="about" id="about">
     <div class="container">
         <div class="about-content">
-            <div class="about-text">
+            <div class="about-text fade-in">
                 <h2>O Domku "Wilcze oko"</h2>
                 <p>"Wilcze oko" to unikalne miejsce stworzone z myślą o miłośnikach natury i relaksu. Nasz całoroczny domek położony jest w malowniczej miejscowości Wietrzno w województwie podkarpackim, z dala od miejskiego zgiełku i codziennych trosk.</p>
                 <p>To, co wyróżnia nasz domek, to jego wyjątkowe położenie bezpośrednio na stawie, oferujące niezapomniane wrażenia i bliski kontakt z przyrodą. Wyobraź sobie poranną kawę na tarasie z widokiem na taflę wody lub wieczorny relaks w jacuzzi pod rozgwieżdżonym niebem.</p>
                 <p>Starannie zaprojektowany i wyposażony we wszystkie niezbędne udogodnienia, domek "Wilcze oko" to idealne miejsce na romantyczny weekend we dwoje, rodzinny wypoczynek czy spotkanie z przyjaciółmi. Niezależnie od pory roku, nasze miejsce zachwyca swoim urokiem i zapewnia niezapomniane wspomnienia.</p>
             </div>
-            <div class="about-image">
+            <div class="about-image fade-in delay-1">
                 <img src="Zdjęcia/Zdjęcia/Zdjęcie WhatsApp 2025-02-19 o 11.56.22_c574f031.jpg" alt="Domek Wilcze Oko">
+                <div class="water-ripple"></div>
             </div>
         </div>
     </div>
@@ -1031,12 +1184,12 @@
 <!-- Testimonials Section -->
 <section class="testimonials">
     <div class="container">
-        <div class="section-title">
+        <div class="section-title fade-in">
             <h2>Opinie naszych gości</h2>
             <p>Poznaj doświadczenia osób, które już odwiedziły nasz domek.</p>
         </div>
         <div class="testimonial-grid">
-            <div class="testimonial-card">
+            <div class="testimonial-card fade-in">
                 <div class="testimonial-text">
                     <p>"Świetne miejsce na relaks i odpoczynek w otoczeniu pięknej przyrody i pięknych udogodnień ogrodowych z sauną i wanną z hydromasażem. Wszystko jest bardzo czyste i pachnące. Niesamowicie miły gospodarz sprawił, że poczułam się jak w bajce. Gorąco polecam to miejsce wszystkim. Na pewno wrócę. Dziękuję."</p>
                 </div>
@@ -1048,7 +1201,7 @@
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card fade-in delay-1">
                 <div class="testimonial-text">
                     <p>"Domek na wodzie Wilcze Oko to magiczne miejsce, w którym spędziliśmy końcówkę roku 2023. Cisza, spokój i piękne tereny wokół, a w samym domku wszystko urządzone na wysokim poziomie. Bardzo przemyślane i funkcjonalnie wyposażone wnętrza, w których można było poczuć się jak w domu. Przesympatyczni, psiolubni i pomocni gospodarze to kolejny plus! Bardzo dziękujemy za tę przygodę!"</p>
                 </div>
@@ -1060,7 +1213,7 @@
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card fade-in delay-2">
                 <div class="testimonial-text">
                     <p>"Jestem absolutnie zauroczona tym miejscem. Zdecydowanie polecam miejsce i bardzo miłą gospodynię. W domku jest wszystko co potrzebne do udanego pobytu, bardzo czysto i przytulnie. Ogromny plus, że można przyjechać ze zwierzakami."</p>
                 </div>
@@ -1078,13 +1231,13 @@
 <!-- Sekcja cennika -->
 <section class="pricing" id="pricing">
     <div class="container">
-        <div class="section-title">
+        <div class="section-title fade-in">
             <h2>Cennik</h2>
             <p>Sprawdź aktualne ceny wynajmu Domku na wodzie "Wilcze Oko"</p>
         </div>
         
         <div class="pricing-container">
-            <div class="pricing-table">
+            <div class="pricing-table glow-hover fade-in">
                 <h3 class="pricing-header">Cennik standardowy</h3>
                 <div class="pricing-note">
                     <p> Nie dotyczy świąt Bożego Narodzenia, Wielkanocy, Majówki i Sylwestra</p>
@@ -1121,7 +1274,7 @@
                 </div>
             </div>
             
-            <div class="pricing-table">
+            <div class="pricing-table glow-hover fade-in delay-1">
                 <h3 class="pricing-header">Dodatkowe udogodnienia</h3>
                 
                 <div class="pricing-item">
@@ -1141,7 +1294,7 @@
             </div>
         </div>
         
-        <div class="pricing-note-bottom">
+        <div class="pricing-note-bottom fade-in delay-2">
             <p>* W celu rezerwacji wymagana jest wpłata zadatku.</p>
             <p>** Minimalny pobyt wynosi 2 doby.</p>
         </div>
@@ -1151,12 +1304,12 @@
 <!-- Contact Section -->
 <section class="contact" id="contact">
     <div class="container">
-        <div class="section-title">
+        <div class="section-title fade-in">
             <h2>Kontakt i rezerwacja</h2>
             <p>Skontaktuj się z nami, aby zarezerwować swój pobyt w Domku na wodzie "Wilcze oko".</p>
         </div>
         <div class="contact-content">
-            <div class="contact-info">
+            <div class="contact-info fade-in">
                 <h3>Informacje kontaktowe</h3>
                 <div class="contact-details">
                     <div class="contact-item">
@@ -1177,7 +1330,7 @@
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4833.0672626700325!2d21.71794615861624!3d49.61670393380952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473c495a5f253571%3A0x27f127d55bec1f4d!2sDomek%20na%20wodzie%20Wilcze%20Oko!5e0!3m2!1spl!2spl!4v1740664086179!5m2!1spl!2spl" style="border:0; width:100%; height:300px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
-            <div class="contact-form">
+            <div class="contact-form fade-in delay-1">
                 <h3>Formularz rezerwacji</h3>
                 <form action="https://formspree.io/f/mvgzepld" method="POST">
                     <div class="form-group">
@@ -1200,7 +1353,7 @@
                         <label for="message">Wiadomość</label>
                         <textarea id="message" name="message"></textarea>
                     </div>
-                    <button type="submit" class="btn">Wyślij zapytanie</button>
+                    <button type="submit" class="btn btn-subtle">Wyślij zapytanie</button>
                 </form>
             </div>
         </div>
@@ -1211,11 +1364,11 @@
 
 <section class="footer-promo">
     <div class="promo-container">
-       <div class="promo-text" style="text-align: center;">
+       <div class="promo-text fade-in" style="text-align: center;">
             <h3>Wilczy Głód</h3>
             <img src="Zdjęcia/1.png" alt="Wilczy Głód - zdrowe odżywianie" style="max-width: 150px; max-height: 150px; object-fit: contain; width: 150px; height: 150px; border-radius: 50%; margin-bottom: 15px;">
             <p>Jeśli chcesz kompleksowo zadbać o swoje zdrowie, odwiedź Wilczy Głód, gdzie znajdziesz profesjonalne porady żywieniowe i plany dietetyczne dopasowane do Twoich potrzeb.</p>
-            <a href="https://wilczy-glod.pl" class="cta-button" style="display: inline-block; margin: 0 auto;">Odkryj Wilczy Głód</a>
+            <a href="https://wilczy-glod.pl" class="cta-button btn-subtle" style="display: inline-block; margin: 0 auto;">Odkryj Wilczy Głód</a>
         </div>
     </div>
 </section>
@@ -1224,7 +1377,7 @@
 <footer>
     <div class="container">
         <div class="footer-content">
-            <div class="footer-column">
+            <div class="footer-column fade-in">
                 <h3>Domek "Wilcze oko"</h3>
                 <p>Luksusowy wypoczynek w sercu natury Podkarpacia. Całoroczny domek letniskowy na wodzie.</p>
                 <ul class="social-links">
@@ -1232,7 +1385,7 @@
                     <li><a href="https://www.instagram.com/domek.wilczeoko?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
-            <div class="footer-column">
+            <div class="footer-column fade-in delay-1">
                 <h3>Nawigacja</h3>
                 <ul class="footer-links">
                     <li><a href="#home">Strona główna</a></li>
@@ -1243,7 +1396,7 @@
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
+            <div class="footer-column fade-in delay-2">
                 <h3>Udogodnienia</h3>
                 <ul class="footer-links">
                     <li><a href="#">Sauna</a></li>
@@ -1253,7 +1406,7 @@
                     <li><a href="#">Boisko do siatkówki</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
+            <div class="footer-column fade-in delay-3">
                 <h3>Godziny otwarcia</h3>
                 <p>Zameldowanie: od 15:00</p>
                 <p>Wymeldowanie: do 11:00</p>
@@ -1321,18 +1474,14 @@
             galleryScroll.addEventListener('touchstart', function(e) {
                 startX = e.touches[0].pageX - galleryScroll.offsetLeft;
                 scrollLeft = galleryScroll.scrollLeft;
-                // Zapobiega podskakiwaniu na iOS
-                e.preventDefault();
-            }, { passive: false });
+            }, { passive: true });
             
             galleryScroll.addEventListener('touchmove', function(e) {
                 if (!startX) return;
                 const x = e.touches[0].pageX - galleryScroll.offsetLeft;
                 const walk = (x - startX) * 2; // Scroll speed multiplier
                 galleryScroll.scrollLeft = scrollLeft - walk;
-                // Zapobiega przewijaniu strony podczas przesuwania galerii
-                e.preventDefault();
-            }, { passive: false });
+            }, { passive: true });
             
             galleryScroll.addEventListener('touchend', function() {
                 startX = null;
@@ -1348,6 +1497,53 @@
                 });
             }, { passive: true });
         }
+    });
+</script>
+<script>
+    // Efekt paralaksy dla tła hero sekcji
+    document.addEventListener('DOMContentLoaded', function() {
+        const parallaxElements = document.querySelectorAll('.parallax-bg');
+        
+        // Sprawdź czy urządzenie nie jest mobilne
+        const isMobile = window.innerWidth <= 768;
+        
+        if (!isMobile) {
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset;
+                
+                parallaxElements.forEach(element => {
+                    // Im wyżej jesteśmy, tym wolniej porusza się tło
+                    const speed = 0.5;
+                    const yPos = -(scrollTop * speed);
+                    element.style.backgroundPosition = `center calc(30% + ${yPos}px)`;
+                });
+            });
+        }
+    });
+
+    // Animacja pojawiania się elementów podczas przewijania
+    document.addEventListener('DOMContentLoaded', function() {
+        // Wybierz wszystkie elementy z klasą .fade-in
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        // Stwórz obserwator, który będzie sprawdzał widoczność elementów
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    // Gdy element się pojawił, przestań go obserwować
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15, // Element zadziała, gdy 15% jego powierzchni jest widoczne
+            rootMargin: '0px 0px -50px 0px' // Uruchamia animację nieco wcześniej
+        });
+        
+        // Obserwuj każdy element
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
     });
 </script>
 </body>

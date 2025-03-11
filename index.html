@@ -35,7 +35,7 @@
             padding: 0 20px;
         }
         
- /* Header Styles */
+/* Header Styles */
 header {
     background-color: var(--primary-color);
     color: white;
@@ -48,29 +48,57 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative; /* Dodane dla pozycjonowania logo */
 }
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
-    position: relative; /* Dodane dla pozycjonowania logo */
 }
 
 .logo-image {
-    height: 80px; /* Większe logo */
+    height: 50px; /* Dostosuj wysokość według potrzeb */
     width: auto;
-    max-width: 300px;
+    max-width: 200px; /* Zabezpieczenie przed zbyt dużym logo */
     transition: transform 0.3s ease;
-    position: absolute; /* Pozycjonowanie absolutne */
-    top: -20px; /* Przesunięcie w górę, aby logo wystawało poza pasek */
-    left: 0;
 }
 
 .logo-image:hover {
     transform: scale(1.05);
 }
+
+/* Zachowaj te style dla kompatybilności wstecznej, gdybyś chciał wrócić do tekstowego logo */
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.mobile-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Hero Section */
 
 /* Hero Section */
         .hero {

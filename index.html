@@ -619,58 +619,72 @@
         .delay-2 { transition-delay: 0.3s; }
         .delay-3 { transition-delay: 0.5s; }
         
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: var(--primary-color);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                z-index: 100;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links li {
-                margin: 10px 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            /* Wyłącz efekt paralaksy na urządzeniach mobilnych */
-            .parallax-bg {
-                background-attachment: scroll;
-            }
-        }
-        
-        /* Poprawiona responsywność galerii */
-        .expanded-gallery {
-            padding: 80px 0;
-            background-color: var(--primary-color);
-            color: white;
-        }
+       /* Responsive Styles */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+    
+    /* Dodany styl dla responsywnego logo */
+    .logo {
+        font-size: 18px; /* Mniejsza czcionka na telefonach */
+    }
+    
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        z-index: 100;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+    }
+    
+    .mobile-menu {
+        display: block;
+    }
+    
+    /* Wyłącz efekt paralaksy na urządzeniach mobilnych */
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+}
+
+/* Dodany nowy media query dla mniejszych ekranów */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 16px; /* Jeszcze mniejsza czcionka na bardzo małych ekranach */
+    }
+}
+
+/* Poprawiona responsywność galerii */
+.expanded-gallery {
+    padding: 80px 0;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Reszta kodu pozostaje bez zmian */
 
         .expanded-gallery .section-title {
             color: white;
@@ -1007,7 +1021,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">Wilcze <span>oko</span></a>
+                <a href="#" class="logo">Domek na wodzie "<span>Wilcze oko</span>"</a>
                 <ul class="nav-links">
                     <li><a href="#home">Strona główna</a></li>
                     <li><a href="#features">Udogodnienia</a></li>
@@ -1038,7 +1052,7 @@
                 <p>Nasz domek oferuje luksusowe udogodnienia, które zapewnią niezapomniane wrażenia podczas Twojego pobytu.</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card glow-hover fire-glow fade-in">
+                <div class="feature-card glow-hover fade-in">
                     <div class="feature-icon">🧖</div>
                     <h3>Sauna</h3>
                     <p>Zrelaksuj się w naszej luksusowej saunie, idealnej na chłodne wieczory i regenerację po aktywnym dniu.</p>

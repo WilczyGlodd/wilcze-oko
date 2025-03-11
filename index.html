@@ -530,7 +530,8 @@
                 display: block;
             }
         }
-        /* Expanded Gallery Styles */
+        
+        /* Poprawiona responsywność galerii */
         .expanded-gallery {
             padding: 80px 0;
             background-color: var(--primary-color);
@@ -559,6 +560,7 @@
             -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
             gap: 20px;
             padding: 20px 0;
+            scroll-snap-type: x mandatory; /* Dodane - zapewni "przyciąganie" podczas scrollowania */
         }
 
         .gallery-scroll::-webkit-scrollbar {
@@ -574,6 +576,7 @@
             position: relative;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
+            scroll-snap-align: center; /* Dodane - zapewni centrowanie elementu po przewinięciu */
         }
 
         .gallery-item-expanded:hover {
@@ -626,15 +629,33 @@
             background-color: var(--accent-color);
         }
 
-        /* Responsive styles for expanded gallery */
+        /* Poprawiona responsywność dla urządzeń mobilnych */
         @media (max-width: 768px) {
             .gallery-item-expanded {
-                width: 250px;
+                width: 85%; /* Zmienione z konkretnej szerokości na procentową */
                 height: 200px;
+                margin: 0 auto; /* Dodane - wyśrodkowanie elementów */
             }
             
             .expanded-gallery-container {
                 padding: 0 20px;
+            }
+            
+            /* Poprawione pozycje przycisków nawigacji */
+            .gallery-prev {
+                margin-left: 5px;
+                left: 0;
+            }
+            
+            .gallery-next {
+                margin-right: 5px;
+                right: 0;
+            }
+            
+            /* Dodatkowe style dla lepszego doświadczenia na telefonie */
+            .gallery-scroll {
+                padding: 20px 10px; /* Dodane większe marginesy */
+                gap: 15px; /* Mniejsza przerwa dla lepszego wyświetlania */
             }
         }
         
@@ -654,21 +675,6 @@
         img {
             max-width: 100%;
             height: auto;
-        }
-
-        /* Poprawka dla galerii na urządzeniach mobilnych */
-        @media (max-width: 768px) {
-            .expanded-gallery-container {
-                padding: 0 10px;
-            }
-            
-            .gallery-prev {
-                margin-left: 0;
-            }
-            
-            .gallery-next {
-                margin-right: 0;
-            }
         }
         
         /* Styles dla promocji Wilczy Głód */
@@ -751,6 +757,96 @@
                 min-width: 100%;
             }
         }
+        
+        /* Styles dla sekcji cennika */
+        .pricing {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pricing-table {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .pricing-header {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .pricing-note {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .pricing-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .pricing-value {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .pricing-item.special {
+            background-color: rgba(46, 139, 87, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: none;
+        }
+
+        .pricing-item.special .pricing-value {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .pricing-note-bottom {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pricing-table {
+                width: 100%;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -765,6 +861,7 @@
                     <li><a href="#features">Udogodnienia</a></li>
                     <li><a href="#gallery">Galeria</a></li>
                     <li><a href="#about">O nas</a></li>
+                    <li><a href="#pricing">Cennik</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
                 <div class="mobile-menu">☰</div>
@@ -889,6 +986,22 @@
                     <div class="gallery-item-expanded">
                         <img src="Zdjęcia/Zdjęcia/Zima.jpg" alt="Dodatkowe zdjęcie 6">
                     </div>
+                    <!-- Dodane 5 nowych miejsc na zdjęcia -->
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/Zdjęcia/nowe-zdjecie-1.jpg" alt="Dodatkowe zdjęcie 7">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/Zdjęcia/nowe-zdjecie-2.jpg" alt="Dodatkowe zdjęcie 8">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/Zdjęcia/nowe-zdjecie-3.jpg" alt="Dodatkowe zdjęcie 9">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/Zdjęcia/nowe-zdjecie-4.jpg" alt="Dodatkowe zdjęcie 10">
+                    </div>
+                    <div class="gallery-item-expanded">
+                        <img src="Zdjęcia/Zdjęcia/nowe-zdjecie-5.jpg" alt="Dodatkowe zdjęcie 11">
+                    </div>
                 </div>
                 <div class="gallery-navigation">
                     <button class="gallery-prev">◀</button>
@@ -1004,7 +1117,7 @@
                 
                 <div class="pricing-item">
                     <div class="pricing-label">Pobyt na 1 dobę (nie dotyczy weekendów):</div>
-                    <div class="pricing-value">1,5 ceny za dobę</div>
+                    <div class="pricing-value">1,5 ceny pobytu</div>
                 </div>
             </div>
             
@@ -1035,97 +1148,6 @@
     </div>
 </section>
 
-<style>
-/* Styles dla sekcji cennika */
-.pricing {
-    padding: 80px 0;
-    background-color: white;
-}
-
-.pricing-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.pricing-table {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.pricing-header {
-    font-size: 24px;
-    color: var(--accent-color);
-    margin-bottom: 20px;
-    text-align: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #e1e1e1;
-}
-
-.pricing-note {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
-    text-align: center;
-    font-style: italic;
-}
-
-.pricing-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #e1e1e1;
-}
-
-.pricing-label {
-    font-weight: 500;
-    color: #333;
-}
-
-.pricing-value {
-    font-weight: 600;
-    color: #555;
-}
-
-.pricing-item.special {
-    background-color: rgba(46, 139, 87, 0.1);
-    padding: 15px;
-    border-radius: 8px;
-    margin: 15px 0;
-    border: none;
-}
-
-.pricing-item.special .pricing-value {
-    color: var(--accent-color);
-    font-weight: 700;
-}
-
-.pricing-note-bottom {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 14px;
-    color: #666;
-}
-
-@media (max-width: 768px) {
-    .pricing-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .pricing-table {
-        width: 100%;
-    }
-}
-</style>
 <!-- Contact Section -->
 <section class="contact" id="contact">
     <div class="container">
@@ -1217,6 +1239,7 @@
                     <li><a href="#features">Udogodnienia</a></li>
                     <li><a href="#gallery">Galeria</a></li>
                     <li><a href="#about">O nas</a></li>
+                    <li><a href="#pricing">Cennik</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </div>
@@ -1270,41 +1293,59 @@
         const nextButton = document.querySelector('.gallery-next');
         
         if (galleryScroll && prevButton && nextButton) {
-            // Set scroll amount (width of one gallery item plus gap)
-            const scrollAmount = 320; // 300px width + 20px gap
+            // Dynamiczna szerokość przewijania - dopasuje się do szerokości bieżącego elementu plus przerwa
+            const getScrollAmount = () => {
+                const galleryItem = document.querySelector('.gallery-item-expanded');
+                // Jeśli jest element, weź jego szerokość + marginesy, inaczej użyj wartości domyślnej
+                return galleryItem ? galleryItem.offsetWidth + 20 : 320;
+            };
             
             prevButton.addEventListener('click', function() {
                 galleryScroll.scrollBy({
-                    left: -scrollAmount,
+                    left: -getScrollAmount(),
                     behavior: 'smooth'
                 });
             });
             
             nextButton.addEventListener('click', function() {
                 galleryScroll.scrollBy({
-                    left: scrollAmount,
+                    left: getScrollAmount(),
                     behavior: 'smooth'
                 });
             });
             
-            // Optionally add touch swipe functionality for mobile
+            // Ulepszone wsparcie dotykowe dla telefonów
             let startX;
             let scrollLeft;
             
             galleryScroll.addEventListener('touchstart', function(e) {
                 startX = e.touches[0].pageX - galleryScroll.offsetLeft;
                 scrollLeft = galleryScroll.scrollLeft;
-            }, { passive: true });
+                // Zapobiega podskakiwaniu na iOS
+                e.preventDefault();
+            }, { passive: false });
             
             galleryScroll.addEventListener('touchmove', function(e) {
                 if (!startX) return;
                 const x = e.touches[0].pageX - galleryScroll.offsetLeft;
                 const walk = (x - startX) * 2; // Scroll speed multiplier
                 galleryScroll.scrollLeft = scrollLeft - walk;
-            }, { passive: true });
+                // Zapobiega przewijaniu strony podczas przesuwania galerii
+                e.preventDefault();
+            }, { passive: false });
             
             galleryScroll.addEventListener('touchend', function() {
                 startX = null;
+                
+                // Dodane: centrowanie na najbliższym elemencie po zakończeniu przesuwania
+                const scrollPosition = galleryScroll.scrollLeft;
+                const itemWidth = getScrollAmount();
+                const targetIndex = Math.round(scrollPosition / itemWidth);
+                
+                galleryScroll.scrollTo({
+                    left: targetIndex * itemWidth,
+                    behavior: 'smooth'
+                });
             }, { passive: true });
         }
     });

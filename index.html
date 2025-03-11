@@ -1022,7 +1022,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero parallax-bg" id="home">
+    <section class="hero" id="home">
         <div class="hero-content fade-in">
             <h1>Domek na wodzie "Wilcze oko"</h1>
             <p>Luksusowy wypoczynek w sercu natury Podkarpacia. Całoroczny domek letniskowy w otoczeniu malowniczych krajobrazów.</p>
@@ -1500,26 +1500,6 @@
     });
 </script>
 <script>
-    // Efekt paralaksy dla tła hero sekcji
-    document.addEventListener('DOMContentLoaded', function() {
-        const parallaxElements = document.querySelectorAll('.parallax-bg');
-        
-        // Sprawdź czy urządzenie nie jest mobilne
-        const isMobile = window.innerWidth <= 768;
-        
-        if (!isMobile) {
-            window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset;
-                
-                parallaxElements.forEach(element => {
-                    // Im wyżej jesteśmy, tym wolniej porusza się tło
-                    const speed = 0.5;
-                    const yPos = -(scrollTop * speed);
-                    element.style.backgroundPosition = `center calc(30% + ${yPos}px)`;
-                });
-            });
-        }
-    });
 
     // Animacja pojawiania się elementów podczas przewijania
     document.addEventListener('DOMContentLoaded', function() {

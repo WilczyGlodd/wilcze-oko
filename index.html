@@ -1249,21 +1249,41 @@ nav { min-height: 64px; }
 .e-bikes h3 { color: var(--accent-color) !important; }
 .expanded-gallery { background: #1d251f; }
 .expanded-gallery-container { margin: 32px 0 0; }
-.gallery-swipe-hint {
-    display: none;
+.gallery-top-controls {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    margin: -12px 0 22px;
-    color: rgba(244,241,233,.72);
-    font-size: 13px;
-    letter-spacing: .01em;
+    gap: 10px;
+    margin: -10px auto 20px;
 }
-.gallery-swipe-hint i {
+.gallery-top-controls button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.18);
+    background: rgba(255,255,255,.055);
+    color: rgba(244,241,233,.92);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background-color .22s ease, border-color .22s ease, transform .22s ease;
+}
+.gallery-top-controls button:hover {
+    background: rgba(85,116,92,.55);
+    border-color: rgba(255,255,255,.28);
+    transform: translateY(-1px);
+}
+.gallery-top-controls i {
     font-size: 14px;
-    color: #d7e2d8;
 }
-.gallery-scroll { gap: 18px; }
+.gallery-scroll {
+    gap: 18px;
+    scroll-padding-inline: max(18px, calc((100% - 420px) / 2));
+    padding-inline: max(18px, calc((100% - 420px) / 2));
+}
 .gallery-item-expanded {
     width: 420px;
     height: 310px;
@@ -1271,14 +1291,7 @@ nav { min-height: 64px; }
     box-shadow: 0 14px 34px rgba(0,0,0,.22);
 }
 .gallery-item-expanded:hover { transform: scale(1.015); }
-.gallery-prev, .gallery-next {
-    width: 44px;
-    height: 44px;
-    background: rgba(17,24,19,.72);
-    border: 1px solid rgba(255,255,255,.20);
-    backdrop-filter: blur(8px);
-}
-.gallery-prev:hover, .gallery-next:hover { background: var(--accent-color); }
+.gallery-navigation { display: none; }
 .about-content { gap: 64px; }
 .about-text p { color: #5f675f; }
 .about-image { border-radius: 20px; box-shadow: var(--soft-shadow); }
@@ -1426,13 +1439,15 @@ footer { background: #131a15; padding-top: 52px; }
     .pricing-label { padding-right: 12px; }
     .pricing-value { text-align: right; }
     .expanded-gallery .container { padding-left: 0; padding-right: 0; }
-    .expanded-gallery .section-title { padding: 0 20px; margin-bottom: 28px; }
-    .gallery-swipe-hint { display: flex; padding: 0 20px; }
-    .gallery-swipe-hint i { animation: swipeHint 1.8s ease-in-out infinite; }
+    .expanded-gallery .section-title { padding: 0 20px; margin-bottom: 24px; }
+    .gallery-top-controls { margin: 0 auto 18px; }
+    .gallery-top-controls button { width: 44px; height: 44px; }
     .expanded-gallery-container { padding: 0 !important; margin-top: 0; }
     .gallery-scroll {
         gap: 12px;
-        padding: 6px 18px 16px;
+        padding-top: 6px;
+        padding-bottom: 16px;
+        padding-inline: 18px;
         scroll-padding-inline: 18px;
     }
     .gallery-item-expanded {
@@ -1440,8 +1455,8 @@ footer { background: #131a15; padding-top: 52px; }
         height: clamp(300px, 78vw, 360px);
         border-radius: 16px;
         scroll-snap-align: center;
+        scroll-snap-stop: always;
     }
-    .gallery-navigation { display: none; }
 }
 @media (max-width: 480px) {
     .hero { min-height: 535px; }
@@ -1618,9 +1633,13 @@ footer { background: #131a15; padding-top: 52px; }
                 <h2>Więcej zdjęć</h2>
                 <p>Przewiń w bok i poczuj klimat miejsca, które pozwala na chwilę oddechu od codzienności</p>
             </div>
-            <div class="gallery-swipe-hint" aria-hidden="true">
-                <span>Przesuń, aby zobaczyć więcej</span>
-                <i class="fa-solid fa-arrow-right-long"></i>
+            <div class="gallery-top-controls fade-in" aria-label="Sterowanie galerią zdjęć">
+                <button class="gallery-prev" type="button" aria-label="Poprzednie zdjęcie">
+                    <i class="fa-solid fa-arrow-left-long" aria-hidden="true"></i>
+                </button>
+                <button class="gallery-next" type="button" aria-label="Następne zdjęcie">
+                    <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+                </button>
             </div>
             <div class="expanded-gallery-container">
                 <div class="gallery-scroll">
@@ -1658,10 +1677,6 @@ footer { background: #131a15; padding-top: 52px; }
                     <div class="gallery-item-expanded">
                         <img src="Zdjęcia/aneks.png" alt="Dodatkowe zdjęcie 11" loading="lazy" decoding="async">
                     </div>
-                </div>
-                <div class="gallery-navigation">
-                    <button class="gallery-prev">◀</button>
-                    <button class="gallery-next">▶</button>
                 </div>
             </div>
         </div>
@@ -1955,7 +1970,10 @@ footer { background: #131a15; padding-top: 52px; }
             const getScrollAmount = () => {
                 const galleryItem = document.querySelector('.gallery-item-expanded');
                 // Jeśli jest element, weź jego szerokość + marginesy, inaczej użyj wartości domyślnej
-                return galleryItem ? galleryItem.offsetWidth + 20 : 320;
+                if (!galleryItem) return 320;
+                const styles = getComputedStyle(galleryScroll);
+                const gap = parseFloat(styles.columnGap || styles.gap || 0) || 0;
+                return galleryItem.offsetWidth + gap;
             };
             
             prevButton.addEventListener('click', function() {

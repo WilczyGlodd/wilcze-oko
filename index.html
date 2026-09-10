@@ -1249,6 +1249,20 @@ nav { min-height: 64px; }
 .e-bikes h3 { color: var(--accent-color) !important; }
 .expanded-gallery { background: #1d251f; }
 .expanded-gallery-container { margin: 32px 0 0; }
+.gallery-swipe-hint {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin: -12px 0 22px;
+    color: rgba(244,241,233,.72);
+    font-size: 13px;
+    letter-spacing: .01em;
+}
+.gallery-swipe-hint i {
+    font-size: 14px;
+    color: #d7e2d8;
+}
 .gallery-scroll { gap: 18px; }
 .gallery-item-expanded {
     width: 420px;
@@ -1363,6 +1377,10 @@ footer { background: #131a15; padding-top: 52px; }
     content-visibility: auto;
     contain-intrinsic-size: 800px;
 }
+@keyframes swipeHint {
+    0%, 100% { transform: translateX(0); opacity: .72; }
+    50% { transform: translateX(6px); opacity: 1; }
+}
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
@@ -1407,7 +1425,23 @@ footer { background: #131a15; padding-top: 52px; }
     .pricing-item { align-items: flex-start; }
     .pricing-label { padding-right: 12px; }
     .pricing-value { text-align: right; }
-    .gallery-item-expanded { width: 90%; height: 270px; }
+    .expanded-gallery .container { padding-left: 0; padding-right: 0; }
+    .expanded-gallery .section-title { padding: 0 20px; margin-bottom: 28px; }
+    .gallery-swipe-hint { display: flex; padding: 0 20px; }
+    .gallery-swipe-hint i { animation: swipeHint 1.8s ease-in-out infinite; }
+    .expanded-gallery-container { padding: 0 !important; margin-top: 0; }
+    .gallery-scroll {
+        gap: 12px;
+        padding: 6px 18px 16px;
+        scroll-padding-inline: 18px;
+    }
+    .gallery-item-expanded {
+        width: calc(100vw - 36px);
+        height: clamp(300px, 78vw, 360px);
+        border-radius: 16px;
+        scroll-snap-align: center;
+    }
+    .gallery-navigation { display: none; }
 }
 @media (max-width: 480px) {
     .hero { min-height: 535px; }
@@ -1583,6 +1617,10 @@ footer { background: #131a15; padding-top: 52px; }
             <div class="section-title fade-in">
                 <h2>Więcej zdjęć</h2>
                 <p>Przewiń w bok i poczuj klimat miejsca, które pozwala na chwilę oddechu od codzienności</p>
+            </div>
+            <div class="gallery-swipe-hint" aria-hidden="true">
+                <span>Przesuń, aby zobaczyć więcej</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
             </div>
             <div class="expanded-gallery-container">
                 <div class="gallery-scroll">
